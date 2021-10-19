@@ -1,0 +1,6 @@
+.columns-desc{
+    display: inline-flex;
+    margin: 0 10px;
+    color: #666;
+    flex-direction: column;
+}
