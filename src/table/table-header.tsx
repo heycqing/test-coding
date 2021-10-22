@@ -4,27 +4,32 @@
 
 import { defineComponent } from '@vue/composition-api'
 
+const ORDER = {
+    asce: 'asce',
+    desc: 'desc'
+}
 
 export default defineComponent({
     name: 'TableHeader',
     props: {
-        columns: { type: Array, required: true }
+        columns: { type: Array, required: true },
+        dataSource: {type: Array, required: true},
+        handleSetSourceData: {type: Function, required: true}
     },
-    setup({columns}, { slots }) {
-        // const classes = useClasses(props)
+    setup(props) {
         return () => {
             return (
                 <thead>
                     <tr>
-                        {columns.map(item => {
+                        {props.columns.map(item => {
                                 return (
                                 <th>
                                     {item.title}
                                     {/* 排序 */}
-                                    {item.desc && 
+                                    {item.order && 
                                         (<span class="columns-desc">
-                                            <span>升序</span>
-                                            <span>降序</span>
+                                            <span onClick={() => props.handleSetSourceData(props.dataSource, ORDER.asce, item.key)}>升序</span>
+                                            <span onClick={() => props.handleSetSourceData(props.dataSource, ORDER.desc, item.key)}>降序</span>
                                         </span>)}
                                 </th>)
                         })}

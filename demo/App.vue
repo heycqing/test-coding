@@ -25,7 +25,7 @@ const columns = [
     title: '年龄',
     dataIndex: 'age',
     key: 'age',
-    desc: true,
+    order: true,
   },
 ]
 export default defineComponent({
