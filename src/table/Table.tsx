@@ -4,6 +4,7 @@
 
 import { defineComponent } from '@vue/composition-api'
 import './index.css'
+import Pagination from './pagination'
 // 组件
 import TableBody from './table-body'
 import TableHeader from './table-header'
@@ -19,6 +20,7 @@ export default defineComponent({
   props: tableProps,
   setup(props, { slots }: any) {
     return () => {
+      // 排序
       const setSortSourceData = (data: [], order: string, key: string) =>{
             // asce 升序
             // desc 降序
@@ -32,6 +34,10 @@ export default defineComponent({
                 return 0;
             });
       }
+      // 分页
+      const handleSetPage () {
+        console.log('fenye');
+      }
       return (
         <div class={['fy-table', props.className]}>
             <div class="fy-table-header"></div>
@@ -42,6 +48,7 @@ export default defineComponent({
                              handleSetSourceData={setSortSourceData}/>
                 <TableBody dataSource={props.dataSource} columns={props.columns} />
             </table>
+            <Pagination size={pageSize}></Pagination>
         </div>
       )
     }

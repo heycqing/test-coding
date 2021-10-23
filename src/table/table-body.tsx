@@ -17,7 +17,6 @@ export default defineComponent({
                 <tbody>
                     {/* 生成数据 */}
                     {props.dataSource.map((item) => {
-                        console.log('item  ==> ', item)
                             return (
                                 <tr>
                                     {/* 依据columns生成 */}
