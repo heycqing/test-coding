@@ -1,6 +1,11 @@
 <template>
   <div class="table-warp">
-    <TestTable :columns="columns" :dataSource="MockData">
+    <TestTable :columns="columns"
+               :dataSource="MockData"
+               :pageSize="2"
+               :onGetPrepage="onGetPrepage"
+               :onGetNextpage="onGetNextpage"
+    >
       <span>xxxxxx</span>
     </TestTable>
   </div>
@@ -43,6 +48,14 @@ export default defineComponent({
       MockData,
       columns,
     }
+  },
+  methods: {
+    onGetNextpage () {
+      console.log('加载下一页')
+    },
+    onGetPrepage () {
+      console.log('加载上一页')
+    },
   },
 })
 </script>

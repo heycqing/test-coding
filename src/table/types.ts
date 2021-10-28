@@ -26,12 +26,24 @@ export type IxPublicPropTypes<O> = O extends object
   ? { [K in PublicRequiredKeys<O>]: InferPropType<O[K]> } & { [K in PublicOptionalKeys<O>]?: InferPropType<O[K]> }
   : { [K in string]: any }
 
-
+export const functionType = { type: Function, default: (():void => {}) }
 // Props 定义在这里
 export const tableProps = {
   dataSource: { type: Array, default: [], required: true },
   columns: { type: Array, default:[], required: true },
   className: { type: String, default: '' },
+  pageSize: { type: Number, default: 2 },
+
+  // event
+  onSuccessRequireData: functionType,
+  onClickRowEvent: functionType,
+  onDoubleClickRowEvent: functionType,
+  onMouseEnterRowEvent: functionType,
+  onMouseLeaveEvent: functionType,
+  onContextmenuClickRowEvent: functionType,
+
+  onGetPrepage: functionType,
+  onGetNextpage: functionType,
 }
 
 export type TablePublicProps = IxPublicPropTypes<typeof tableProps>

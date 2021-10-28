@@ -34,10 +34,6 @@ export default defineComponent({
                 return 0;
             });
       }
-      // 分页
-      const handleSetPage () {
-        console.log('fenye');
-      }
       return (
         <div class={['fy-table', props.className]}>
             <div class="fy-table-header"></div>
@@ -47,8 +43,13 @@ export default defineComponent({
                              dataSource={props.dataSource} 
                              handleSetSourceData={setSortSourceData}/>
                 <TableBody dataSource={props.dataSource} columns={props.columns} />
+                <tfoot>
+                  <Pagination size={props.pageSize}
+                              dataSource={props.dataSource}
+                              ></Pagination>
+                </tfoot>
             </table>
-            <Pagination size={pageSize}></Pagination>
+            
         </div>
       )
     }
