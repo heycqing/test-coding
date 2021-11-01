@@ -16,7 +16,7 @@ export default defineComponent({
         dataSource: {type: Array, required: true},
         handleSetSourceData: {type: Function, required: true}
     },
-    setup(props) {
+    setup(props, {slots}) {
         return () => {
             return (
                 <thead>

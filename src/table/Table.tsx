@@ -3,6 +3,7 @@
  */
 
 import { defineComponent } from '@vue/composition-api'
+import { ref } from 'vue'
 import './index.css'
 import Pagination from './pagination'
 // 组件
@@ -20,6 +21,8 @@ export default defineComponent({
   props: tableProps,
   setup(props, { slots }: any) {
     return () => {
+
+      let tablePaginationRef = ref('tablePaginationRef');
       // 排序
       const setSortSourceData = (data: [], order: string, key: string) =>{
             // asce 升序
@@ -34,6 +37,8 @@ export default defineComponent({
                 return 0;
             });
       }
+
+
       return (
         <div class={['fy-table', props.className]}>
             <div class="fy-table-header"></div>
@@ -44,12 +49,11 @@ export default defineComponent({
                              handleSetSourceData={setSortSourceData}/>
                 <TableBody dataSource={props.dataSource} columns={props.columns} />
                 <tfoot>
-                  <Pagination size={props.pageSize}
-                              dataSource={props.dataSource}
-                              ></Pagination>
+                  <Pagination ref="tablePaginationRef"
+                              size={props.pageSize}
+                              dataSource={props.dataSource}></Pagination>
                 </tfoot>
             </table>
-            
         </div>
       )
     }

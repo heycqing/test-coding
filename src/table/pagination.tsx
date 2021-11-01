@@ -27,7 +27,6 @@ export default defineComponent({
                 return;
             }
             if (currentPage && currentPage < (tempDataSourceChunkMap.length + 1)) {
-                console.log('fenye', currentPage);
                 props.dataSource = tempDataSourceChunkMap[currentPage];
             }
         }
