@@ -22,4 +22,5 @@ describe('Table', () => {
 
     expect(wrapper.find('.test-class').exists()).toBeTruthy()
   })
+
 })
