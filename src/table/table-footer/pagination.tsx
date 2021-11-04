@@ -4,7 +4,7 @@
 
 import { defineComponent } from '@vue/composition-api';
 import _ from 'lodash';
-import { functionType } from './types';
+import { functionType } from '../types';
 
 export default defineComponent({
     name: 'Pagination',

@@ -54,6 +54,6 @@ module.exports = {
       statements: 85,
     },
   },
-  coveragePathIgnorePatterns: ['/node_modules/', '<rootDir>/tests'],
+  coveragePathIgnorePatterns: ['/node_modules/', '<rootDir>/tests', 'src/test-mock/'],
   reporters: ['default', 'jest-junit'],
 }

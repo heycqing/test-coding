@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="6" failures="0" errors="0" time="6.103">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-11-04T05:19:41" time="1.876" tests="3">
+    <testcase classname=" test table-header render" name=" test table-header render" time="0.002">
+    </testcase>
+    <testcase classname=" test teble-header click asce" name=" test teble-header click asce" time="0.001">
+    </testcase>
+    <testcase classname=" test teble-header click desc" name=" test teble-header click desc" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="Table" errors="0" failures="0" skipped="0" timestamp="2021-11-04T05:19:41" time="2.099" tests="1">
+    <testcase classname="Table Table render" name="Table Table render" time="0.107">
+    </testcase>
+  </testsuite>
+  <testsuite name="TableBody" errors="0" failures="0" skipped="0" timestamp="2021-11-04T05:19:41" time="2.042" tests="1">
+    <testcase classname="TableBody render" name="TableBody render" time="0.098">
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-11-04T05:19:43" time="0.417" tests="1">
+    <testcase classname=" test render table footer" name=" test render table footer" time="0.025">
+    </testcase>
+  </testsuite>
+</testsuites>

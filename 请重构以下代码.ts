@@ -5,48 +5,58 @@
 // txt 上传到 ftp
 // exe 上传到 sftp
 // doc 上传到 http
-function uploadByFtp(file: string): Promise<boolean> {
-    return new Promise(resolve => resolve(true))
+function uploadByFtp(_file: string): Promise<boolean> {
+  return new Promise(resolve => resolve(true))
 }
-function uploadBySftp(file: string[], cb: (ret: boolean) => void): void {
-    cb(true)
+function uploadBySftp(_file: string[], cb: (ret: boolean) => void): void {
+  cb(true)
 }
-function uploadByHttp(file: string): boolean {
-    return true
+function uploadByHttp(_file: string): boolean {
+  return true
 }
 
-const fileAfterName = (file:string) => file.match(/\.(\w+)$/)[1]
+const fileAfterName = (file: string) => {
+  console.log('info fileAfterName -> file', file)
+  return file.match(/\.(\w+)$/)?.[1] || ''
+}
 
-let uploadFnMap = {
-    'txt': uploadByFtp,
-    'exe': uploadBySftp,
-    'doc': uploadByHttp,
+
+const uploadFnMap:any = {
+  'txt': uploadByFtp,
+  'exe': uploadBySftp,
+  'doc': uploadByHttp,
 }
 
 // 实现如下
 function upload(files: string[], cb: (ret: boolean) => void): Promise<boolean> {
-    return Promise.all(
-        files.filter(file => !Object.keys(uploadFnMap).includes(fileAfterName(file)))
-        .map(fileItem => {
-            return new Promise((resolve, reject) => {
-                try {
-                    resolve(uploadFnMap[fileAfterName(fileItem)](fileItem))
-                } catch (e) {
-                    reject(e)
-                }
-            }).then(res => {
-                cb && cb instanceof Function && cb(true)
-                return true
-            }, rej => {
-                return false
-            })
+  console.log('info upload -> files', files)
+  console.log('info upload -> cb', cb)
+  return Promise.all(
+    files.filter((file: string) => !Object.keys(uploadFnMap).includes(fileAfterName(file)))
+      .map((fileItem:string) => {
+        return new Promise((resolve, reject) => {
+          try {
+            console.log('info getUploadFnMap -> fileItem', fileItem)
+            resolve(uploadFnMap[fileAfterName(fileItem)](fileItem, cb))
+          } catch (e) {
+            console.log('warn getUploadFnMap -> fileItem', fileItem)
+            reject(e)
+          }
+        }).then(res => {
+          console.log('info upload -> _res', res)
+          cb && cb instanceof Function && cb(true)
+          return true
+        }, rej => {
+          console.log('info upload -> rej', rej)
+          return false
         })
-    ).then(res => {
-        return res.every(Boolean);
-    })
+      }),
+  ).then(res => {
+    return res.every(Boolean)
+  })
 }
 
-upload(['1.txt','2.exe'], () => true).then((res) => {
-    console.log(res)
+upload(['1.txt','2.exe'], () => true).then(res => {
+  console.log(res)
 })
 

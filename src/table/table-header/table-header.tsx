@@ -28,8 +28,8 @@ export default defineComponent({
                                     {/* 排序 */}
                                     {item.order && 
                                         (<span class="columns-desc">
-                                            <span onClick={() => props.handleSetSourceData(props.dataSource, ORDER.asce, item.key)}>升序</span>
-                                            <span onClick={() => props.handleSetSourceData(props.dataSource, ORDER.desc, item.key)}>降序</span>
+                                            <span onClick={() => props.handleSetSourceData(props.dataSource, ORDER.asce, item.key)} id="asce">升序</span>
+                                            <span onClick={() => props.handleSetSourceData(props.dataSource, ORDER.desc, item.key)} id="desc">降序</span>
                                         </span>)}
                                 </th>)
                         })}

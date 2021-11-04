@@ -3,12 +3,11 @@
  */
 
 import { defineComponent } from '@vue/composition-api'
-import { ref } from 'vue'
 import './index.css'
-import Pagination from './pagination'
 // 组件
-import TableBody from './table-body'
-import TableHeader from './table-header'
+import TableBody from './table-body/table-body'
+import Pagination from './table-footer/pagination'
+import TableHeader from './table-header/table-header'
 import { tableProps } from './types'
 
 const ORDER = {
@@ -22,7 +21,7 @@ export default defineComponent({
   setup(props, { slots }: any) {
     return () => {
 
-      let tablePaginationRef = ref('tablePaginationRef');
+      // let tablePaginationRef = ref('tablePaginationRef');
       // 排序
       const setSortSourceData = (data: [], order: string, key: string) =>{
             // asce 升序

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table Table render 1`] = `
+"<div class=\\"fy-table test-class\\">
+  <div class=\\"fy-table-header\\"></div>
+  <table border=\\"solid\\" class=\\"fy-table-body\\">
+    <colgroup span=\\"4\\" class=\\"columns\\"></colgroup>
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>年龄<span class=\\"columns-desc\\"><span id=\\"asce\\">升序</span><span id=\\"desc\\">降序</span></span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>小明</td>
+        <td>man</td>
+        <td>16</td>
+      </tr>
+      <tr>
+        <td>小红</td>
+        <td>woman</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td>小明</td>
+        <td>woman</td>
+        <td>13</td>
+      </tr>
+      <tr>
+        <td>小明</td>
+        <td>woman</td>
+        <td>14</td>
+      </tr>
+      <tr>
+        <td>小明</td>
+        <td>man</td>
+        <td>25</td>
+      </tr>
+      <tr>
+        <td>小刚</td>
+        <td>man</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>小明</td>
+        <td>man</td>
+        <td>7</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <div class=\\"pagination\\"><span>首页</span><span>上一页</span><span>下一页</span><span>尾页</span></div>
+    </tfoot>
+  </table>
+</div>"
+`;

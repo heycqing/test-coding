@@ -1,26 +1,24 @@
 import { mount } from '@vue/test-utils'
 import { TestTable } from '../table'
+import { className, pageSize, tableArr, tableColumns } from '../test-mock/mockdata.test'
 
 describe('Table', () => {
   const TableMount = options => mount(TestTable, options)
 
-  test('render', () => {
-    const wrapper = TableMount()
+  test('Table render', () => {
+    const wrapper = TableMount({
+      propsData: {
+        dataSource: tableArr,
+        columns: tableColumns,
+        pageSize,
+        className,
+      },
+    })
     expect(wrapper.html()).toMatchSnapshot()
     expect(() => {
       wrapper.vm.$forceUpdate()
       wrapper.vm.$destroy()
-    }).not.toThrow()
-  })
-
-  test('props test', () => {
-    const wrapper = TableMount({
-      propsData: {
-        test: true,
-      },
     })
-
-    expect(wrapper.find('.test-class').exists()).toBeTruthy()
   })
 
 })
