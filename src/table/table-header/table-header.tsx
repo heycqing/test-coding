@@ -9,6 +9,7 @@ const ORDER = {
     desc: 'desc'
 }
 
+// TableHeader 模块，作为受控组件独立
 export default defineComponent({
     name: 'TableHeader',
     props: {
@@ -19,18 +20,23 @@ export default defineComponent({
     setup(props, {slots}) {
         return () => {
             return (
-                <thead>
+                <thead class="tabel-header">
                     <tr>
                         {props.columns.map(item => {
                                 return (
                                 <th>
-                                    {item.title}
-                                    {/* 排序 */}
-                                    {item.order && 
-                                        (<span class="columns-desc">
-                                            <span onClick={() => props.handleSetSourceData(props.dataSource, ORDER.asce, item.key)} id="asce">升序</span>
-                                            <span onClick={() => props.handleSetSourceData(props.dataSource, ORDER.desc, item.key)} id="desc">降序</span>
-                                        </span>)}
+                                    {slots.header ? 
+                                        slots.header :
+                                        (<div>
+                                            {item.title}
+                                            {/* 排序 */}
+                                            {item.order && 
+                                                (<span class="columns-desc">
+                                                    <span onClick={() => props.handleSetSourceData(props.dataSource, ORDER.asce, item.key)} id="asce">升序</span>
+                                                    <span onClick={() => props.handleSetSourceData(props.dataSource, ORDER.desc, item.key)} id="desc">降序</span>
+                                                </span>)}
+                                        </div>)
+                                    }
                                 </th>)
                         })}
                     </tr>

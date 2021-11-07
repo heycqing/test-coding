@@ -2,21 +2,25 @@ import { mount } from '@vue/test-utils'
 import { TableBody } from '../table/table-body'
 import { tableArr, tableColumns } from '../test-mock/mockdata.test'
 
-describe('TableBody', () => {
+// 1. 构造单元测试元素
+const getWrapperDm = options =>
+  mount(TableBody, {
+    propsData: {
+      dataSource: tableArr,
+      columns: tableColumns,
+    },
+    ...options,
+  })
 
-  const TableMount = options => mount(TableBody, options)
-
-  test('render', () => {
-    const wrapper = TableMount({
-      propsData: {
-        dataSource: tableArr,
-        columns: tableColumns,
-      },
-    })
-    expect(wrapper.html()).toMatchSnapshot()
-    expect(() => {
-      wrapper.vm.$forceUpdate()
-      wrapper.vm.$destroy()
-    })
+test('Test tableBody render', () => {
+  expect(() => {
+    // tableBody组件渲染已经触发;
+    getWrapperDm.vm.$mounted().toBeTruthy()
+    // 找到该实例 tabel-header
+    getWrapperDm.findAllComponents('.table-body').at(0).exists().toBeTruthy()
+    // tableBody组件强制更新已经触发;
+    getWrapperDm.vm.$forceUpdate()
+    // tableBody组件渲染已经触发;
+    getWrapperDm.vm.$destroy()
   })
 })

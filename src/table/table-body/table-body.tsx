@@ -13,16 +13,19 @@ export default defineComponent({
     setup(props, { slots }) {
         return () => {
             return (
-                <tbody>
+                <tbody class="table-body">
                     {/* 生成数据 */}
                     {props.dataSource.map((item) => {
                             return (
-                                <tr>
-                                    {/* 依据columns生成 */}
-                                    {props.columns.map(keyItem => keyItem.key).map(colItem => {
-                                        return <td>{item[colItem]}</td>
-                                    })}
-                                </tr>
+                                <div>
+                                    {slots.rowContent ? slots.rowContent : (
+                                        <th>
+                                        {props.columns.map(keyItem => keyItem.key).map(colItem => {
+                                            return <td>{item[colItem]}</td>
+                                        })}
+                                        </th>
+                                    )}
+                                </div>
                             )
                         })}
                 </tbody>

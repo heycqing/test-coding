@@ -20,17 +20,17 @@ export default defineComponent({
   props: tableProps,
   setup(props, { slots }: any) {
     return () => {
-
-      // let tablePaginationRef = ref('tablePaginationRef');
       // 排序
       const setSortSourceData = (data: [], order: string, key: string) =>{
             // asce 升序
             // desc 降序
-            props.dataSource = data.sort((a, b) => {
-                if (a[key] < b[key]) {
+            console.log('info Table -> setSortSourceData -> agv: {data,order,key)', data, order, key)
+            props.dataSource = data.sort((pre, next) => {
+                console.log('info Table -> setSortSourceData -> sort: {pre, next}', pre, next)
+                if (pre[key] < next[key]) {
                     return order === ORDER.asce ? -1 : 1;
                 }
-                if (a[key] > b[key]) {
+                if (pre[key] > next[key]) {
                     return order === ORDER.desc ? 1 : -1;
                 }
                 return 0;
