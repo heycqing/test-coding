@@ -2,7 +2,7 @@
   <div class="table-warp">
     <TestTable :columns="columns"
                :dataSource="MockData"
-               :pageSize="2"
+               :pageSize="4"
                :onGetPrepage="onGetPrepage"
                :onGetNextpage="onGetNextpage"
     >

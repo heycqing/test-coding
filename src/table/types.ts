@@ -46,6 +46,45 @@ export const tableProps = {
   onGetNextpage: functionType,
 }
 
+export interface tablePropsType {
+  dataSource: object[]
+  columns: TableHeaderDataType[]
+  className: string
+  pageSize: number
+}
+
+// 表格body ts类型
+export interface TableHeaderDataType{
+  name: string
+  age: number
+  sex: string
+}
+
+export interface TableBodyPropsType {
+  dataSource: object[]
+  columns: TableHeaderDataType[]
+}
+
+// 分页器
+export interface PropsType {
+  size:number
+  dataSource: object[]
+  dataLen: number
+}
+
+// 表格头部ts类型
+export interface  TableHeaderPropsType {
+  columns: TableHeaderDataType[]
+  dataSource: object[]
+  handleSetSourceData: Function
+}
+
+export interface TableHeaderDataType{
+  title: string
+  dataIndex: string
+  key: string | number
+  order: boolean | any
+}
 export type TablePublicProps = IxPublicPropTypes<typeof tableProps>
 
 

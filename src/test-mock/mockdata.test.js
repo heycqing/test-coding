@@ -26,6 +26,26 @@ export const tableArr = [{
   'name': '小明',
   'age': 7,
   'sex': 'man',
+},{
+  'name': 'maker02',
+  'age': 11,
+  'sex': 'woman',
+},{
+  'name': 'maker01',
+  'age': 16,
+  'sex': 'woman',
+},{
+  'name': 'maker',
+  'age': 298,
+  'sex': 'man',
+},{
+  'name': 'maker00',
+  'age': 22,
+  'sex': 'man',
+},{
+  'name': 'maker07',
+  'age': 67,
+  'sex': 'man',
 }]
 export const tableColumns = [
   {

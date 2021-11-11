@@ -3,11 +3,8 @@
  */
 
 import { defineComponent } from '@vue/composition-api'
-
-const ORDER = {
-    asce: 'asce',
-    desc: 'desc'
-}
+import { TableHeaderPropsType, TableHeaderDataType } from '../types'
+import { ORDER } from '../const'
 
 // TableHeader 模块，作为受控组件独立
 export default defineComponent({
@@ -17,12 +14,12 @@ export default defineComponent({
         dataSource: {type: Array, required: true},
         handleSetSourceData: {type: Function, required: true}
     },
-    setup(props, {slots}) {
+    setup(props: TableHeaderPropsType, {slots}: any) {
         return () => {
             return (
                 <thead class="tabel-header">
                     <tr>
-                        {props.columns.map(item => {
+                        {props.columns.map((item:TableHeaderDataType) => {
                                 return (
                                 <th>
                                     {slots.header ? 
