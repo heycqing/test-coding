@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+                <span class="strong">62.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/7</span>
+                <span class='fraction'>5/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>3/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+                <span class="strong">62.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/7</span>
+                <span class='fraction'>5/8</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -106,20 +106,7 @@
 <a name='L47'></a><a href='#L47'>47</a>
 <a name='L48'></a><a href='#L48'>48</a>
 <a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<a name='L50'></a><a href='#L50'>50</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -131,12 +118,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -164,40 +160,38 @@
  */
 &nbsp;
 import { defineComponent } from '@vue/composition-api'
+import { ORDER } from '../const'
+import { TableHeaderDataType, TableHeaderPropsType } from '../types'
 &nbsp;
-const ORDER = {
-    asce: 'asce',
-    desc: 'desc'
-}
-&nbsp;
-const renderColumsSolt = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-    // console.lo
-}
-&nbsp;
+// TableHeader 模块，作为受控组件独立
 export default defineComponent({
     name: 'TableHeader',
     props: {
         columns: { type: Array, required: true },
         dataSource: {type: Array, required: true},
-        handleSetSourceData: {type: Function, required: true}
     },
-<span class="fstat-no" title="function not covered" >    se</span>tup(props, {slots}) {
-<span class="cstat-no" title="statement not covered" >        return <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            return (</span>
+    emits: ['sortList'],
+    setup(props: TableHeaderPropsType, {slots, emit}) {
+        const clickSort = <span class="fstat-no" title="function not covered" >(d</span>ata: object[], order: string, key: string) =&gt; {
+<span class="cstat-no" title="statement not covered" >            emit('sortList', data, order, key)</span>
+        }
+        return () =&gt; {
+            clickSort
+            return (
                 &lt;thead class="tabel-header"&gt;
                     &lt;tr&gt;
-                        {props.columns.map(<span class="fstat-no" title="function not covered" >it</span>em =&gt; {
-<span class="cstat-no" title="statement not covered" >                                return (</span>
+                        {props.columns.map((item:TableHeaderDataType) =&gt; {
+                                return (
                                 &lt;th&gt;
                                     {slots.header ? 
-                                        slots.header :
+<span class="branch-0 cbranch-no" title="branch not covered" >                                        slots.header </span>:
                                         (&lt;div&gt;
                                             {item.title}
                                             {/* 排序 */}
                                             {item.order &amp;&amp; 
                                                 (&lt;span class="columns-desc"&gt;
-                                                    &lt;span onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >props.handleSetSourceData(props.dataSource, ORDER.asce, item.key)}</span> id="asce"&gt;升序&lt;/span&gt;
-                                                    &lt;span onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >props.handleSetSourceData(props.dataSource, ORDER.desc, item.key)}</span> id="desc"&gt;降序&lt;/span&gt;
+                                                    &lt;span onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >clickSort(props.dataSource, ORDER.asce, item.key)}</span> id="asce"&gt;升序&lt;/span&gt;
+                                                    &lt;span onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >clickSort(props.dataSource, ORDER.desc, item.key)}</span> id="desc"&gt;降序&lt;/span&gt;
                                                 &lt;/span&gt;)}
                                         &lt;/div&gt;)
                                     }
@@ -217,7 +211,7 @@ export default defineComponent({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sun Nov 07 2021 02:49:22 GMT+0800 (中国标准时间)
+                at Tue Nov 16 2021 02:45:03 GMT+0800 (中国标准时间)
             </div>
         </div>
         <script src="../../prettify.js"></script>

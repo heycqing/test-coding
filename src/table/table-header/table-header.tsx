@@ -3,8 +3,8 @@
  */
 
 import { defineComponent } from '@vue/composition-api'
-import { TableHeaderPropsType, TableHeaderDataType } from '../types'
 import { ORDER } from '../const'
+import { TableHeaderDataType, TableHeaderPropsType } from '../types'
 
 // TableHeader 模块，作为受控组件独立
 export default defineComponent({
@@ -12,10 +12,14 @@ export default defineComponent({
     props: {
         columns: { type: Array, required: true },
         dataSource: {type: Array, required: true},
-        handleSetSourceData: {type: Function, required: true}
     },
-    setup(props: TableHeaderPropsType, {slots}: any) {
+    emits: ['sortList'],
+    setup(props: TableHeaderPropsType, {slots, emit}) {
+        const clickSort = (data: object[], order: string, key: string) => {
+            emit('sortList', data, order, key)
+        }
         return () => {
+            clickSort
             return (
                 <thead class="tabel-header">
                     <tr>
@@ -29,8 +33,8 @@ export default defineComponent({
                                             {/* 排序 */}
                                             {item.order && 
                                                 (<span class="columns-desc">
-                                                    <span onClick={() => props.handleSetSourceData(props.dataSource, ORDER.asce, item.key)} id="asce">升序</span>
-                                                    <span onClick={() => props.handleSetSourceData(props.dataSource, ORDER.desc, item.key)} id="desc">降序</span>
+                                                    <span onClick={() => clickSort(props.dataSource, ORDER.asce, item.key)} id="asce">升序</span>
+                                                    <span onClick={() => clickSort(props.dataSource, ORDER.desc, item.key)} id="desc">降序</span>
                                                 </span>)}
                                         </div>)
                                     }

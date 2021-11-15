@@ -1,23 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="6" failures="0" errors="0" time="9.87">
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-11-06T18:49:18" time="2.598" tests="3">
-    <testcase classname=" Test tableHeader render" name=" Test tableHeader render" time="0.004">
+<testsuites name="jest tests" tests="10" failures="2" errors="0" time="5.978">
+  <testsuite name="TableHeader" errors="0" failures="0" skipped="0" timestamp="2021-11-15T18:45:00" time="1.922" tests="2">
+    <testcase classname="TableHeader 测试分页" name="TableHeader 测试分页" time="0.071">
     </testcase>
-    <testcase classname=" Test tableHeader click asce" name=" Test tableHeader click asce" time="0.001">
-    </testcase>
-    <testcase classname=" Test tableHeader click desc" name=" Test tableHeader click desc" time="0.001">
+    <testcase classname="TableHeader test " name="TableHeader test " time="0.027">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-11-06T18:49:18" time="2.772" tests="1">
-    <testcase classname=" test render table footer" name=" test render table footer" time="0.063">
+  <testsuite name="TableHeader" errors="0" failures="1" skipped="0" timestamp="2021-11-15T18:45:00" time="1.979" tests="2">
+    <testcase classname="TableHeader Test tableBody render" name="TableHeader Test tableBody render" time="0.002">
+    </testcase>
+    <testcase classname="TableHeader Test 异常情况" name="TableHeader Test 异常情况" time="0.063">
+      <failure>TypeError: getWrapperDm01(...).vm.$mounted is not a function
+    at Object.&lt;anonymous&gt; (/Users/cqing/test-coding/src/__tests__/table_body.spec.js:39:32)
+    at Promise.then.completed (/Users/cqing/test-coding/node_modules/jest-circus/build/utils.js:390:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/cqing/test-coding/node_modules/jest-circus/build/utils.js:315:10)
+    at _callCircusTest (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:66:9)
+    at _runTestsForDescribeBlock (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:60:9)
+    at run (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/cqing/test-coding/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)
+    at jestAdapter (/Users/cqing/test-coding/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/cqing/test-coding/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/cqing/test-coding/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/cqing/test-coding/node_modules/jest-runner/build/testWorker.js:133:12)</failure>
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-11-06T18:49:21" time="0.29" tests="1">
-    <testcase classname=" Test tableBody render" name=" Test tableBody render" time="0">
+  <testsuite name="Table" errors="0" failures="0" skipped="0" timestamp="2021-11-15T18:45:03" time="0.215" tests="1">
+    <testcase classname="Table Test Table render" name="Table Test Table render" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-11-06T18:49:18" time="3.08" tests="1">
-    <testcase classname=" Test Table render" name=" Test Table render" time="0.008">
+  <testsuite name="TableHeader" errors="0" failures="1" skipped="0" timestamp="2021-11-15T18:45:00" time="2.358" tests="5">
+    <testcase classname="TableHeader Test tableHeader render" name="TableHeader Test tableHeader render" time="0.003">
+    </testcase>
+    <testcase classname="TableHeader Test tableHeader click asce age" name="TableHeader Test tableHeader click asce age" time="0.224">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: &quot;age&quot;
+Received: undefined
+    at Object.&lt;anonymous&gt; (/Users/cqing/test-coding/src/__tests__/table_header.spec.js:68:47)
+    at Promise.then.completed (/Users/cqing/test-coding/node_modules/jest-circus/build/utils.js:390:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/cqing/test-coding/node_modules/jest-circus/build/utils.js:315:10)
+    at _callCircusTest (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:66:9)
+    at _runTestsForDescribeBlock (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:60:9)
+    at run (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/cqing/test-coding/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)
+    at jestAdapter (/Users/cqing/test-coding/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/cqing/test-coding/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/cqing/test-coding/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/cqing/test-coding/node_modules/jest-runner/build/testWorker.js:133:12)</failure>
+    </testcase>
+    <testcase classname="TableHeader Test tableHeader click desc age" name="TableHeader Test tableHeader click desc age" time="0.001">
+    </testcase>
+    <testcase classname="TableHeader Test tableHeader click desc name" name="TableHeader Test tableHeader click desc name" time="0">
+    </testcase>
+    <testcase classname="TableHeader Test tableHeader click asce sex" name="TableHeader Test tableHeader click asce sex" time="0.001">
     </testcase>
   </testsuite>
 </testsuites>

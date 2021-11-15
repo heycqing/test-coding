@@ -3,7 +3,7 @@ module.exports = {
   // for example, ['<rootDir>/packages/components/button']
   roots: ['<rootDir>/src/'],
   setupFiles: ['<rootDir>/jest.setup.js'],
-
+  verbose: false,
   testEnvironment: 'jsdom',
   transform: {
     '^.+\\.vue$': 'vue-jest',
