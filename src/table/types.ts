@@ -10,27 +10,35 @@ type PublicOptionalKeys<T> = Exclude<keyof T, PublicRequiredKeys<T>>
 type InferPropType<T> = T extends null
   ? any // null & true would fail to infer
   : T extends { type: null | true }
-    ? any // As TS issue https://github.com/Microsoft/TypeScript/issues/14829 // somehow `ObjectConstructor` when inferred from { (): T } becomes `any` // `BooleanConstructor` when inferred from PropConstructor(with PropMethod) becomes `Boolean`
-    : T extends ObjectConstructor | { type: ObjectConstructor }
-      ? Record<string, any>
-      : T extends BooleanConstructor | { type: BooleanConstructor }
-        ? boolean
-        : T extends Prop<infer V, infer D>
-          ? unknown extends V
-            ? D
-            : V
-          : T
+  ? any // As TS issue https://github.com/Microsoft/TypeScript/issues/14829 // somehow `ObjectConstructor` when inferred from { (): T } becomes `any` // `BooleanConstructor` when inferred from PropConstructor(with PropMethod) becomes `Boolean`
+  : T extends ObjectConstructor | { type: ObjectConstructor }
+  ? Record<string, any>
+  : T extends BooleanConstructor | { type: BooleanConstructor }
+  ? boolean
+  : T extends Prop<infer V, infer D>
+  ? unknown extends V
+  ? D
+  : V
+  : T
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type IxPublicPropTypes<O> = O extends object
   ? { [K in PublicRequiredKeys<O>]: InferPropType<O[K]> } & { [K in PublicOptionalKeys<O>]?: InferPropType<O[K]> }
   : { [K in string]: any }
 
-export const functionType = { type: Function, default: (():void => {}) }
+export const functionType = { type: Function, default: ((): void => { }) }
+
+const columnsDefault = {
+  title: '',
+  dataIndex: '',
+  key: '',
+  order: false,
+}
+
 // Props 定义在这里
 export const tableProps = {
   dataSource: { type: Array, default: [], required: true },
-  columns: { type: Array, default:[], required: true },
+  columns: { type: Array, default: [columnsDefault], required: true },
   className: { type: String, default: '' },
   pageSize: { type: Number, default: 2 },
 
@@ -47,39 +55,37 @@ export const tableProps = {
 }
 
 export interface tablePropsType {
-  dataSource: object[]
+  dataSource: any[]
   columns: TableHeaderDataType[]
   className: string
   pageSize: number
 }
 
 // 表格body ts类型
-export interface TableHeaderDataType{
+export interface TableHeaderDataType {
   name: string
   age: number
   sex: string
 }
 
 export interface TableBodyPropsType {
-  dataSource: object[]
+  data: any[]
   columns: TableHeaderDataType[]
 }
 
 // 分页器
 export interface PropsType {
-  size:number
-  dataSource: object[]
   dataLen: number
 }
 
 // 表格头部ts类型
-export interface  TableHeaderPropsType {
+export interface TableHeaderPropsType {
   columns: TableHeaderDataType[]
-  dataSource: object[]
+  data: any[]
   handleSetSourceData: Function
 }
 
-export interface TableHeaderDataType{
+export interface TableHeaderDataType {
   title: string
   dataIndex: string
   key: string | number

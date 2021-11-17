@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.5% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.5% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -122,29 +122,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -168,40 +168,40 @@ export default defineComponent({
     name: 'TableHeader',
     props: {
         columns: { type: Array, required: true },
-        dataSource: {type: Array, required: true},
     },
     emits: ['sortList'],
-    setup(props: TableHeaderPropsType, {slots, emit}) {
-        const clickSort = <span class="fstat-no" title="function not covered" >(d</span>ata: object[], order: string, key: string) =&gt; {
-<span class="cstat-no" title="statement not covered" >            emit('sortList', data, order, key)</span>
+    setup(props_: TableHeaderPropsType, { emit }) {
+        const clickSort = (order: string, key: string) =&gt; {
+            emit('sortList', order, key)
         }
-        return () =&gt; {
+        return {
             clickSort
-            return (
-                &lt;thead class="tabel-header"&gt;
-                    &lt;tr&gt;
-                        {props.columns.map((item:TableHeaderDataType) =&gt; {
-                                return (
-                                &lt;th&gt;
-                                    {slots.header ? 
-<span class="branch-0 cbranch-no" title="branch not covered" >                                        slots.header </span>:
-                                        (&lt;div&gt;
-                                            {item.title}
-                                            {/* 排序 */}
-                                            {item.order &amp;&amp; 
-                                                (&lt;span class="columns-desc"&gt;
-                                                    &lt;span onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >clickSort(props.dataSource, ORDER.asce, item.key)}</span> id="asce"&gt;升序&lt;/span&gt;
-                                                    &lt;span onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >clickSort(props.dataSource, ORDER.desc, item.key)}</span> id="desc"&gt;降序&lt;/span&gt;
-                                                &lt;/span&gt;)}
-                                        &lt;/div&gt;)
-                                    }
-                                &lt;/th&gt;)
-                        })}
-                    &lt;/tr&gt;
-                &lt;/thead&gt;
-            )
         }
     },
+    render() {
+        let { columns, clickSort } = this;
+        return (
+            &lt;thead class="tabel-header"&gt;
+                &lt;tr&gt;
+                    {columns.map((item: TableHeaderDataType) =&gt; {
+                        return (
+                            &lt;th&gt;
+                                &lt;div&gt;
+                                    {item.title}
+                                    {/* 排序 */}
+                                    {item.order &amp;&amp;
+                                        (&lt;span class="columns-desc"&gt;
+                                            {/* 不能在header里面直接修改props的原数据 */}
+                                            &lt;span onClick={() =&gt; clickSort(ORDER.asce, item.key)} id="asce"&gt;升序&lt;/span&gt;
+                                            &lt;span onClick={() =&gt; clickSort(ORDER.desc, item.key)} id="desc"&gt;降序&lt;/span&gt;
+                                        &lt;/span&gt;)}
+                                &lt;/div&gt;
+                            &lt;/th&gt;)
+                    })}
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+        )
+    }
 })
 &nbsp;
 &nbsp;</pre></td></tr></table></pre>
@@ -211,7 +211,7 @@ export default defineComponent({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Nov 16 2021 02:45:03 GMT+0800 (中国标准时间)
+                at Thu Nov 18 2021 03:04:30 GMT+0800 (中国标准时间)
             </div>
         </div>
         <script src="../../prettify.js"></script>

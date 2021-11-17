@@ -8,20 +8,17 @@ import { TableBodyPropsType } from '../types'
 export default defineComponent({
     name: 'TableBody',
     props: {
-        dataSource: { type: Array, required: true },
+        data: { type: Array, required: true },
         columns: { type: Array, required: true }
     },
     setup(props: TableBodyPropsType, { slots }) {
         return () => {
-            if(slots.rowContent){
-                return slots.rowContent
-            }
             return (
                 <tbody class="table-body">
                     {/* 生成数据 */}
-                    {props.dataSource.map((item) => {
+                    {props.data?.map((item) => {
                             return (<tr>
-                                {props.columns.map(keyItem => keyItem.key).map(colItem => {
+                                {props.columns?.map(keyItem => keyItem.key)?.map(colItem => {
                                         return <td>{item[colItem]}</td>
                                 })}
                                 </tr>)

@@ -11,39 +11,39 @@ export default defineComponent({
     name: 'TableHeader',
     props: {
         columns: { type: Array, required: true },
-        dataSource: {type: Array, required: true},
     },
     emits: ['sortList'],
-    setup(props: TableHeaderPropsType, {slots, emit}) {
-        const clickSort = (data: object[], order: string, key: string) => {
-            emit('sortList', data, order, key)
+    setup(props_: TableHeaderPropsType, { emit }) {
+        const clickSort = (order: string, key: string) => {
+            emit('sortList', order, key)
         }
-        return () => {
+        return {
             clickSort
-            return (
-                <thead class="tabel-header">
-                    <tr>
-                        {props.columns.map((item:TableHeaderDataType) => {
-                                return (
-                                <th>
-                                    {slots.header ? 
-                                        slots.header :
-                                        (<div>
-                                            {item.title}
-                                            {/* 排序 */}
-                                            {item.order && 
-                                                (<span class="columns-desc">
-                                                    <span onClick={() => clickSort(props.dataSource, ORDER.asce, item.key)} id="asce">升序</span>
-                                                    <span onClick={() => clickSort(props.dataSource, ORDER.desc, item.key)} id="desc">降序</span>
-                                                </span>)}
-                                        </div>)
-                                    }
-                                </th>)
-                        })}
-                    </tr>
-                </thead>
-            )
         }
     },
+    render() {
+        let { columns, clickSort } = this;
+        return (
+            <thead class="tabel-header">
+                <tr>
+                    {columns.map((item: TableHeaderDataType) => {
+                        return (
+                            <th>
+                                <div>
+                                    {item.title}
+                                    {/* 排序 */}
+                                    {item.order &&
+                                        (<span class="columns-desc">
+                                            {/* 不能在header里面直接修改props的原数据 */}
+                                            <span onClick={() => clickSort(ORDER.asce, item.key)} id="asce">升序</span>
+                                            <span onClick={() => clickSort(ORDER.desc, item.key)} id="desc">降序</span>
+                                        </span>)}
+                                </div>
+                            </th>)
+                    })}
+                </tr>
+            </thead>
+        )
+    }
 })
 

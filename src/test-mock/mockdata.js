@@ -73,3 +73,5 @@ export const pageSize =  10
 export const defaultSort = 'asce'
 
 export const defaultKey = 'age'
+
+export const FIRSTPAGE = 0

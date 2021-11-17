@@ -1,66 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="10" failures="2" errors="0" time="5.978">
-  <testsuite name="TableHeader" errors="0" failures="0" skipped="0" timestamp="2021-11-15T18:45:00" time="1.922" tests="2">
-    <testcase classname="TableHeader 测试分页" name="TableHeader 测试分页" time="0.071">
-    </testcase>
-    <testcase classname="TableHeader test " name="TableHeader test " time="0.027">
+<testsuites name="jest tests" tests="24" failures="0" errors="0" time="12.127">
+  <testsuite name="TableHeader" errors="0" failures="0" skipped="0" timestamp="2021-11-17T19:04:24" time="3.889" tests="1">
+    <testcase classname="TableHeader Test tableBody render" name="TableHeader Test tableBody render" time="0.003">
     </testcase>
   </testsuite>
-  <testsuite name="TableHeader" errors="0" failures="1" skipped="0" timestamp="2021-11-15T18:45:00" time="1.979" tests="2">
-    <testcase classname="TableHeader Test tableBody render" name="TableHeader Test tableBody render" time="0.002">
+  <testsuite name="TableHeader" errors="0" failures="0" skipped="0" timestamp="2021-11-17T19:04:24" time="4.461" tests="12">
+    <testcase classname="TableHeader Test setCurrentPage方法" name="TableHeader Test setCurrentPage方法" time="0.132">
     </testcase>
-    <testcase classname="TableHeader Test 异常情况" name="TableHeader Test 异常情况" time="0.063">
-      <failure>TypeError: getWrapperDm01(...).vm.$mounted is not a function
-    at Object.&lt;anonymous&gt; (/Users/cqing/test-coding/src/__tests__/table_body.spec.js:39:32)
-    at Promise.then.completed (/Users/cqing/test-coding/node_modules/jest-circus/build/utils.js:390:28)
-    at new Promise (&lt;anonymous&gt;)
-    at callAsyncCircusFn (/Users/cqing/test-coding/node_modules/jest-circus/build/utils.js:315:10)
-    at _callCircusTest (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:218:40)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)
-    at _runTest (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:155:3)
-    at _runTestsForDescribeBlock (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:66:9)
-    at _runTestsForDescribeBlock (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:60:9)
-    at run (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:25:3)
-    at runAndTransformResultsToJestFormat (/Users/cqing/test-coding/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)
-    at jestAdapter (/Users/cqing/test-coding/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
-    at runTestInternal (/Users/cqing/test-coding/node_modules/jest-runner/build/runTest.js:389:16)
-    at runTest (/Users/cqing/test-coding/node_modules/jest-runner/build/runTest.js:475:34)
-    at Object.worker (/Users/cqing/test-coding/node_modules/jest-runner/build/testWorker.js:133:12)</failure>
+    <testcase classname="TableHeader Test handleSetPage方法: currentPage.value &lt;= FIRSTPAGE" name="TableHeader Test handleSetPage方法: currentPage.value &lt;= FIRSTPAGE" time="0.075">
+    </testcase>
+    <testcase classname="TableHeader Test handleSetPage方法: currentPage.value &gt;= LASTPAGE" name="TableHeader Test handleSetPage方法: currentPage.value &gt;= LASTPAGE" time="0.017">
+    </testcase>
+    <testcase classname="TableHeader Test handleSetPage方法: currentPage.value &lt;= LASTPAGE || currentPage.value &gt;= FIRSTPAGE" name="TableHeader Test handleSetPage方法: currentPage.value &lt;= LASTPAGE || currentPage.value &gt;= FIRSTPAGE" time="0.008">
+    </testcase>
+    <testcase classname="TableHeader Test handleSetPage方法: currentPage.value &lt;= LASTPAGE || currentPage.value &gt;= FIRSTPAGE" name="TableHeader Test handleSetPage方法: currentPage.value &lt;= LASTPAGE || currentPage.value &gt;= FIRSTPAGE" time="0.011">
+    </testcase>
+    <testcase classname="TableHeader Test handleSetPage方法: currentPage.value &lt;= LASTPAGE || currentPage.value &gt;= FIRSTPAGE" name="TableHeader Test handleSetPage方法: currentPage.value &lt;= LASTPAGE || currentPage.value &gt;= FIRSTPAGE" time="0.005">
+    </testcase>
+    <testcase classname="TableHeader Test handleSetPage方法: currentPage.value &lt;= LASTPAGE || currentPage.value &gt;= FIRSTPAGE" name="TableHeader Test handleSetPage方法: currentPage.value &lt;= LASTPAGE || currentPage.value &gt;= FIRSTPAGE" time="0.012">
+    </testcase>
+    <testcase classname="TableHeader Test changeOriginList" name="TableHeader Test changeOriginList" time="0.007">
+    </testcase>
+    <testcase classname="TableHeader Test trigger firstPage click " name="TableHeader Test trigger firstPage click " time="0.022">
+    </testcase>
+    <testcase classname="TableHeader Test trigger prePage click " name="TableHeader Test trigger prePage click " time="0.008">
+    </testcase>
+    <testcase classname="TableHeader Test trigger nextPage click " name="TableHeader Test trigger nextPage click " time="0.007">
+    </testcase>
+    <testcase classname="TableHeader Test trigger lastPage click " name="TableHeader Test trigger lastPage click " time="0.074">
     </testcase>
   </testsuite>
-  <testsuite name="Table" errors="0" failures="0" skipped="0" timestamp="2021-11-15T18:45:03" time="0.215" tests="1">
-    <testcase classname="Table Test Table render" name="Table Test Table render" time="0.001">
+  <testsuite name="TableHeader" errors="0" failures="0" skipped="0" timestamp="2021-11-17T19:04:28" time="1.32" tests="6">
+    <testcase classname="TableHeader Test tableHeader render" name="TableHeader Test tableHeader render" time="0.013">
+    </testcase>
+    <testcase classname="TableHeader Test tableHeader click asce age" name="TableHeader Test tableHeader click asce age" time="0.064">
+    </testcase>
+    <testcase classname="TableHeader Test tableHeader click desc age" name="TableHeader Test tableHeader click desc age" time="0.005">
+    </testcase>
+    <testcase classname="TableHeader Test tableHeader click emptyOrder age" name="TableHeader Test tableHeader click emptyOrder age" time="0.011">
+    </testcase>
+    <testcase classname="TableHeader Test trigger asce click " name="TableHeader Test trigger asce click " time="0.049">
+    </testcase>
+    <testcase classname="TableHeader Test trigger desc click " name="TableHeader Test trigger desc click " time="0.014">
     </testcase>
   </testsuite>
-  <testsuite name="TableHeader" errors="0" failures="1" skipped="0" timestamp="2021-11-15T18:45:00" time="2.358" tests="5">
-    <testcase classname="TableHeader Test tableHeader render" name="TableHeader Test tableHeader render" time="0.003">
+  <testsuite name="Table" errors="0" failures="0" skipped="0" timestamp="2021-11-17T19:04:24" time="5.346" tests="5">
+    <testcase classname="Table Test Table render" name="Table Test Table render" time="0.006">
     </testcase>
-    <testcase classname="TableHeader Test tableHeader click asce age" name="TableHeader Test tableHeader click asce age" time="0.224">
-      <failure>Error: expect(received).toBe(expected) // Object.is equality
-
-Expected: &quot;age&quot;
-Received: undefined
-    at Object.&lt;anonymous&gt; (/Users/cqing/test-coding/src/__tests__/table_header.spec.js:68:47)
-    at Promise.then.completed (/Users/cqing/test-coding/node_modules/jest-circus/build/utils.js:390:28)
-    at new Promise (&lt;anonymous&gt;)
-    at callAsyncCircusFn (/Users/cqing/test-coding/node_modules/jest-circus/build/utils.js:315:10)
-    at _callCircusTest (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:218:40)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)
-    at _runTest (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:155:3)
-    at _runTestsForDescribeBlock (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:66:9)
-    at _runTestsForDescribeBlock (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:60:9)
-    at run (/Users/cqing/test-coding/node_modules/jest-circus/build/run.js:25:3)
-    at runAndTransformResultsToJestFormat (/Users/cqing/test-coding/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)
-    at jestAdapter (/Users/cqing/test-coding/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
-    at runTestInternal (/Users/cqing/test-coding/node_modules/jest-runner/build/runTest.js:389:16)
-    at runTest (/Users/cqing/test-coding/node_modules/jest-runner/build/runTest.js:475:34)
-    at Object.worker (/Users/cqing/test-coding/node_modules/jest-runner/build/testWorker.js:133:12)</failure>
+    <testcase classname="Table Test setSortSourceData方法" name="Table Test setSortSourceData方法" time="0.226">
     </testcase>
-    <testcase classname="TableHeader Test tableHeader click desc age" name="TableHeader Test tableHeader click desc age" time="0.001">
+    <testcase classname="Table Test changeOriginList方法" name="Table Test changeOriginList方法" time="0.031">
     </testcase>
-    <testcase classname="TableHeader Test tableHeader click desc name" name="TableHeader Test tableHeader click desc name" time="0">
+    <testcase classname="Table Test sortActiveOrder value 变成 asce" name="Table Test sortActiveOrder value 变成 asce" time="0.038">
     </testcase>
-    <testcase classname="TableHeader Test tableHeader click asce sex" name="TableHeader Test tableHeader click asce sex" time="0.001">
+    <testcase classname="Table Test sortActiveOrder value 变成 空" name="Table Test sortActiveOrder value 变成 空" time="0.03">
     </testcase>
   </testsuite>
 </testsuites>

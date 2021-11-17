@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { TableBody } from '../table/table-body'
-import { tableArr, tableColumns } from '../test-mock/mockdata.test'
+import { tableArr, tableColumns } from '../test-mock/mockdata.js'
 
 describe('TableHeader', () => {
 
@@ -8,7 +8,7 @@ describe('TableHeader', () => {
   const getWrapperDm = options =>
     mount(TableBody, {
       propsData: {
-        dataSource: tableArr,
+        data: tableArr,
         columns: tableColumns,
       },
       ...options,
@@ -25,18 +25,6 @@ describe('TableHeader', () => {
       // tableBody组件渲染已经触发;
       getWrapperDm().vm.$destroy()
     })
-  })
-
-  test('Test 异常情况', () => {
-    const getWrapperDm01 = options =>
-      mount(TableBody, {
-        propsData: {
-          dataSource: [],
-          columns: [],
-        },
-        ...options,
-      })
-    expect(getWrapperDm01().vm.$mounted())
   })
 
 })

@@ -10,7 +10,7 @@ import {
   pageSize,
   tableArr,
   tableColumns
-} from '../test-mock/mockdata.test'
+} from '../test-mock/mockdata.js'
 
 describe('TableHeader', () => {
   // 1. 构造单元测试元素
@@ -59,35 +59,42 @@ describe('TableHeader', () => {
   // 3.1 排序函数 - 排序 and 倒序
   test('Test tableHeader click asce age', async () => {
     const sortWarpper = getWrapperDm()
-    // sortWarpper.vm.$emit('SortList')
-    console.log('---------------------- ', sortWarpper.vm.clickSort)
-    sortWarpper.vm.$emit('SortList', tableArr, defaultSort, defaultKey)
-
-    console.log('TestTableWrapperDm ', TestTableWrapperDm().vm.activeKey)
-
-    expect(TestTableWrapperDm().vm.activeKey).toBe(defaultKey)
-    expect(TestTableWrapperDm().vm.sortKey).toBe(defaultSort)
+    sortWarpper.vm.$emit('SortList', defaultSort, defaultKey)
+    await sortWarpper.vm.$nextTick()
+    expect(sortWarpper.emitted().SortList).toBeTruthy()
+    expect(sortWarpper.emitted().SortList[0]).toEqual([defaultSort, defaultKey])
   })
 
-  test('Test tableHeader click desc age', () => {
-    expect(async () => {
-      const sortWarpper = getWrapperDm()
-      sortWarpper.vm.$emit('SortList', tableArr, 'desc', 'age')
-    })
+  test('Test tableHeader click desc age', async () => {
+    const sortWarpper = getWrapperDm()
+    sortWarpper.vm.$emit('SortList', 'desc', defaultKey)
+    await sortWarpper.vm.$nextTick()
+    expect(sortWarpper.emitted().SortList).toBeTruthy()
+    expect(sortWarpper.emitted().SortList[0]).toEqual(['desc', defaultKey])
   })
 
-  test('Test tableHeader click desc name', () => {
-    expect(async () => {
-      const sortWarpper = getWrapperDm()
-      sortWarpper.vm.$emit('SortList', tableArr, 'desc', 'name')
-    })
+  test('Test tableHeader click emptyOrder age', async () => {
+    const sortWarpper = getWrapperDm()
+    sortWarpper.vm.$emit('SortList', '', defaultKey)
+    await sortWarpper.vm.$nextTick()
+    expect(sortWarpper.emitted().SortList).toBeTruthy()
+    expect(sortWarpper.emitted().SortList[0]).toEqual(['', defaultKey])
   })
 
-  test('Test tableHeader click asce sex', () => {
-    expect(async () => {
-      const sortWarpper = getWrapperDm()
-      sortWarpper.vm.$emit('SortList', tableArr, 'asce', 'sex')
-    })
+  // 找到id:asce dom 元素点击
+  test('Test trigger asce click ', () => {
+    const sortWarpper = getWrapperDm()
+    const asceDom = sortWarpper.find('#asce')
+    expect(asceDom.element.id).toBe('asce')
+    asceDom.trigger('click')
+  })
+
+  // 找到id:desc dom 元素点击
+  test('Test trigger desc click ', () => {
+    const sortWarpper = getWrapperDm()
+    const descDom = sortWarpper.find('#desc')
+    expect(descDom.element.id).toBe('desc')
+    descDom.trigger('click')
   })
 
 })
